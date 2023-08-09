@@ -1159,7 +1159,7 @@ drawContextualUI = function () {
         let genPreview = document.createElement("input");
         genPreview.setAttribute("type", "button");
         genPreview.classList.add("gamestart-preview", "gamestart-button");
-        genPreview.value = "Preview Map";
+        genPreview.value = "上一个地图";
         genPreview.style.left = "265px";
         genPreview.addEventListener("click", function() {
 
@@ -1170,7 +1170,7 @@ drawContextualUI = function () {
         let startGame = document.createElement("input");
         startGame.setAttribute("type", "button");
         startGame.classList.add("gamestart-preview", "gamestart-button");
-        startGame.value = "Start Game";
+        startGame.value = "开始游戏";
         startGame.style.right = "170px";
         startGame.style.backgroundColor = "hsla(131, 60%, 48%, 1)";
         startGame.addEventListener("click", function() {
@@ -1188,7 +1188,7 @@ drawContextualUI = function () {
         let presetDefault = document.createElement("input");
         presetDefault.setAttribute("type", "button");
         presetDefault.classList.add("gamestart-preview", "gamestart-button");
-        presetDefault.value = "Default";
+        presetDefault.value = "默认";
         presetDefault.style.top = "105px";
         presetDefault.style.right = "25px";
         presetDefault.addEventListener("click", function() {
@@ -1206,7 +1206,7 @@ drawContextualUI = function () {
         let presetRiver = document.createElement("input");
         presetRiver.setAttribute("type", "button");
         presetRiver.classList.add("gamestart-preview", "gamestart-button");
-        presetRiver.value = "River";
+        presetRiver.value = "河流";
         presetRiver.style.top = "155px";
         presetRiver.style.right = "25px";
         presetRiver.style.backgroundColor = "hsla(197, 56%, 54%, 1)";
@@ -1225,7 +1225,7 @@ drawContextualUI = function () {
         let presetArid = document.createElement("input");
         presetArid.setAttribute("type", "button");
         presetArid.classList.add("gamestart-preview", "gamestart-button");
-        presetArid.value = "Arid";
+        presetArid.value = "干旱";
         presetArid.style.top = "205px";
         presetArid.style.right = "25px";
         presetArid.style.backgroundColor = "hsla(57, 47%, 73%, 1)";
@@ -1244,7 +1244,7 @@ drawContextualUI = function () {
         let presetArch = document.createElement("input");
         presetArch.setAttribute("type", "button");
         presetArch.classList.add("gamestart-preview", "gamestart-button");
-        presetArch.value = "Archipelago";
+        presetArch.value = "群岛";
         presetArch.style.top = "255px";
         presetArch.style.right = "25px";
         presetArch.style.backgroundColor = "hsla(167, 40%, 64%, 1)";
@@ -1263,7 +1263,7 @@ drawContextualUI = function () {
         let presetJungle = document.createElement("input");
         presetJungle.setAttribute("type", "button");
         presetJungle.classList.add("gamestart-preview", "gamestart-button");
-        presetJungle.value = "Jungle";
+        presetJungle.value = "丛林";
         presetJungle.style.top = "305px";
         presetJungle.style.right = "25px";
         presetJungle.style.backgroundColor = "hsla(107, 76%, 29%, 1)";
@@ -1282,7 +1282,7 @@ drawContextualUI = function () {
         let presetRandom = document.createElement("input");
         presetRandom.setAttribute("type", "button");
         presetRandom.classList.add("gamestart-preview", "gamestart-button");
-        presetRandom.value = "Random";
+        presetRandom.value = "随机";
         presetRandom.style.top = "355px";
         presetRandom.style.right = "25px";
         presetRandom.style.backgroundColor = "hsla(300, 76%, 30%, 1)";

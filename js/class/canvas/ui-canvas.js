@@ -346,7 +346,7 @@ class RockCanvas{
         );
         if (this.clicks > 0) return;
         let outlineText = new OutlineText();
-        outlineText.drawText(ctx, 36, "white", "Click Me!", ctx.canvas.width / 2, (ctx.canvas.height / 2) + 6, 4, "center");
+        outlineText.drawText(ctx, 36, "white", "点我!", ctx.canvas.width / 2, (ctx.canvas.height / 2) + 6, 4, "center");
     }
 
     draw(canvas, ctx) {
@@ -933,7 +933,7 @@ class GameHelpPanel{
         let outlineText = new OutlineText();
         let startY = 64;
 
-        outlineText.drawText(ctx, 30, "white", "Game Help", (canvas.width / 2), 25, 4, "center");
+        outlineText.drawText(ctx, 30, "white", "游戏帮助", (canvas.width / 2), 25, 4, "center");
         outlineText.drawLine(ctx, 0, 36, canvas.width, 36, "white", 4);
 
         for (let i = 0; i < HELP_STRINGS.length; i++) {
@@ -967,7 +967,7 @@ class GameHelpPanel{
             }
         }
 
-        outlineText.drawText(ctx, 14, "white", "Click Menu to Return to Game", canvas.width, canvas.height - 3, 4, "right");
+        outlineText.drawText(ctx, 14, "white", "点击菜单返回游戏", canvas.width, canvas.height - 3, 4, "right");
     }
 
     draw(canvas, ctx) {
@@ -998,7 +998,7 @@ class GameStatsPanel{
         let outlineText = new OutlineText();
         let numberHelper = new NumberHelper();
 
-        outlineText.drawText(ctx, 30, "white", "Game Stats", (canvas.width / 2), 25, 4, "center");
+        outlineText.drawText(ctx, 30, "white", "游戏统计", (canvas.width / 2), 25, 4, "center");
         outlineText.drawLine(ctx, 0, 36, canvas.width, 36, "white", 4);
 
         //#region Date started (x time ago)
@@ -1079,14 +1079,14 @@ class GameStatsPanel{
         outlineText.drawText(ctx, 14, "white", `放置的建筑: ${buildingsPlaced}`, 10, startY, 4, "left");                      startY += incY;
         outlineText.drawText(ctx, 14, "white", `放置的道路: ${pathsPlaced}`, 10, startY, 4, "left");                              startY += incY;
         outlineText.drawText(ctx, 14, "white", `放置的景色: ${sceneryPlaced}`, 10, startY, 4, "left");                        startY += incY;
-        outlineText.drawText(ctx, 14, "white", `最高提升瓷砖: ${maxBoost}%`, 10, startY, 4, "left");                        startY += incY;
+        outlineText.drawText(ctx, 14, "white", `最高提升地块: ${maxBoost}%`, 10, startY, 4, "left");                        startY += incY;
         outlineText.drawText(ctx, 14, "white", `购买的法令: ${edictsPurchased}`, 10, startY, 4, "left");                        startY += incY * 2;
 
         outlineText.drawText(ctx, 14, "white", `点击石头的次数: ${this.stats.rockClicks}`, 10, startY, 4, "left");              startY += incY;
         outlineText.drawText(ctx, 14, "white", `石头点击收益: $${rockEarnings}`, 10, startY, 4, "left");                     startY += incY;
         outlineText.drawText(ctx, 14, "white", `总计获得的区域: $${totalEarnings}`, 10, startY, 4, "left");                  startY += incY * 2;
 
-        outlineText.drawText(ctx, 14, "white", `Meteorites Harvested: ${this.stats.meteorClicks}`, 10, startY, 4, "left");          startY += incY * 2;
+        outlineText.drawText(ctx, 14, "white", `收获的陨石: ${this.stats.meteorClicks}`, 10, startY, 4, "left");          startY += incY * 2;
 
         outlineText.drawText(ctx, 14, "white", `地图种子: ${this.world.worldSeed}`, 10, startY, 4, "left");                         startY += incY;
 
@@ -1118,11 +1118,11 @@ class AchievementPanel{
     #drawText(canvas, ctx) {
 
         let outlineText = new OutlineText();
-        outlineText.drawText(ctx, 30, "white", `Achievements (${this.unlocked}/${this.total})`, (canvas.width / 2), 25, 4, "center");
+        outlineText.drawText(ctx, 30, "white", `成就 (${this.unlocked}/${this.total})`, (canvas.width / 2), 25, 4, "center");
         outlineText.drawLine(ctx, 0, 36, canvas.width, 36, "white", 4);
 
         outlineText.drawLine(ctx, 0, canvas.height - 37, canvas.width, canvas.height - 37, "white", 4);
-        outlineText.drawText(ctx, 14, "white", "Click Menu to Return to Game", canvas.width, canvas.height - 10, 4, "right");
+        outlineText.drawText(ctx, 14, "white", "点击菜单返回游戏", canvas.width, canvas.height - 10, 4, "right");
     }
 
     draw(canvas, ctx) {
@@ -1170,7 +1170,7 @@ class ToolTip{
             cost = cost.toLocaleString("fullwide", {useGrouping: false});
             cost = numberHelper.returnLongHandNumber(cost);
 
-            outlineText.drawText(ctx, 16, "white", `Cost: $${cost}`, canvas.width / 2, 70, 4, "center");
+            outlineText.drawText(ctx, 16, "white", `成本: $${cost}`, canvas.width / 2, 70, 4, "center");
         }
     }
 
@@ -1254,7 +1254,7 @@ class EdictButton{
     #drawText() {
 
         let outlineText = new OutlineText();
-        outlineText.drawText(this.ctx, 28, "white", "View Edicts", 120, 30, 4, "center");
+        outlineText.drawText(this.ctx, 28, "white", "查看法令", 120, 30, 4, "center");
     }
 }
 
@@ -1438,7 +1438,7 @@ class AlertCanvas{
         let outlineText = new OutlineText();
 
         outlineText.drawText(ctx, 14, "white", `v${VERSION_STR}`, 5, canvas.height - 5, 4, "left");
-        outlineText.drawText(ctx, 14, "white", "Click Popup to Continue", canvas.width - 5, canvas.height - 5, 4, "right");
+        outlineText.drawText(ctx, 14, "white", "点击浮窗以继续", canvas.width - 5, canvas.height - 5, 4, "right");
     }
 
     draw (canvas, ctx) {
@@ -1543,8 +1543,8 @@ class BuildingTooltip{
         let posY = 58;
         let incY = 18;
 
-        outlineText.drawText(ctx, 14, "white", `Price: $${price}`, 0, posY, 2, "left"); posY += incY;
-        outlineText.drawText(ctx, 14, "white", `Placement: ${placeStyle} tiles`, 0, posY, 2, "left"); posY += incY;
+        outlineText.drawText(ctx, 14, "white", `价格: $${price}`, 0, posY, 2, "left"); posY += incY;
+        outlineText.drawText(ctx, 14, "white", `放置: ${placeStyle} tiles`, 0, posY, 2, "left"); posY += incY;
         outlineText.drawText(ctx, 14, "white", `${quality}x yield to adjacent tiles`, 0, posY, 2, "left"); posY += incY;
         if (placeAmount != 0) { outlineText.drawText(ctx, 14, "white", `${placeAmount} paths placed`, 0, posY, 2, "left"); posY += incY; }
 
@@ -1599,11 +1599,11 @@ class BuildingTooltip{
         let incY = 18;
 
         //#region Building stats
-        outlineText.drawText(ctx, 14, "white", `Base Yield: $${baseYield}`, 0, posY, 2, "left"); posY += incY;
-        outlineText.drawText(ctx, 14, "white", `Placement: ${placeStyle} tiles`, 0, posY, 2, "left"); posY += incY;
-        if (populationBonus > 0) { outlineText.drawText(ctx, 14, "white", `Houses ${populationBonusString} humans`, 0, posY, 2, "left"); posY += incY; }
-        if (boostBonus > 0) { outlineText.drawText(ctx, 14, "white", `Boosts yield by ${(boostBonus)}% in radius`, 0, posY, 2, "left"); posY += incY; }
-        if (this.building.requires_path) { outlineText.drawText(ctx, 14, "white", `Requires path connection`, 0, posY, 2, "left"); posY += incY; }
+        outlineText.drawText(ctx, 14, "white", `基础生产: $${baseYield}`, 0, posY, 2, "left"); posY += incY;
+        outlineText.drawText(ctx, 14, "white", `放置: ${placeStyle} tiles`, 0, posY, 2, "left"); posY += incY;
+        if (populationBonus > 0) { outlineText.drawText(ctx, 14, "white", `容纳 ${populationBonusString} 人`, 0, posY, 2, "left"); posY += incY; }
+        if (boostBonus > 0) { outlineText.drawText(ctx, 14, "white", `提升生产 ${(boostBonus)}% 按比率`, 0, posY, 2, "left"); posY += incY; }
+        if (this.building.requires_path) { outlineText.drawText(ctx, 14, "white", `需要路径连接`, 0, posY, 2, "left"); posY += incY; }
 
         if (earningSec > 0 || totalTowers > 0 || population > 0) {
 
@@ -1612,9 +1612,9 @@ class BuildingTooltip{
             posY += incY;
         }
 
-        if (earningSec > 0) { outlineText.drawText(ctx, 14, "white", `Earning $${earningString}/s (${percentTotal}%)`, 0, posY, 2, "left"); posY += incY; }
-        if (totalTowers > 0) { outlineText.drawText(ctx, 14, "white", `${totalTowers} towers placed`, 0, posY, 2, "left"); posY += incY; }
-        if (population > 0) { outlineText.drawText(ctx, 14, "white", `Housing ${populationString} humans`, 0, posY, 2, "left"); posY += incY; }
+        if (earningSec > 0) { outlineText.drawText(ctx, 14, "white", `赚取 $${earningString}/秒 (${percentTotal}%)`, 0, posY, 2, "left"); posY += incY; }
+        if (totalTowers > 0) { outlineText.drawText(ctx, 14, "white", `${totalTowers} 放置的塔楼`, 0, posY, 2, "left"); posY += incY; }
+        if (population > 0) { outlineText.drawText(ctx, 14, "white", `可以容纳 ${populationString} 人`, 0, posY, 2, "left"); posY += incY; }
         //#endregion
 
         //#region Resources
@@ -1662,9 +1662,9 @@ class BuildingTooltip{
         let posY = 58;
         let incY = 18;
 
-        outlineText.drawText(ctx, 14, "white", `Price: $${price}`, 0, posY, 2, "left"); posY += incY;
-        outlineText.drawText(ctx, 14, "white", `Placement: ${placeStyle} tiles`, 0, posY, 2, "left"); posY += incY;
-        if (placeAmount != 0) { outlineText.drawText(ctx, 14, "white", `${placeAmount} sceneries placed`, 0, posY, 2, "left"); posY += incY; }
+        outlineText.drawText(ctx, 14, "white", `价格: $${price}`, 0, posY, 2, "left"); posY += incY;
+        outlineText.drawText(ctx, 14, "white", `放置: ${placeStyle} tiles`, 0, posY, 2, "left"); posY += incY;
+        if (placeAmount != 0) { outlineText.drawText(ctx, 14, "white", `${placeAmount} 放置的风景`, 0, posY, 2, "left"); posY += incY; }
         //#endregion
 
         //#region Resource
@@ -1886,21 +1886,21 @@ class NewGameSettings{
 
         let outlineText = new OutlineText();
 
-        outlineText.drawText(ctx, 30, "white", "Map and Civilization Settings", canvas.width / 2, 25, 4, "center");
+        outlineText.drawText(ctx, 30, "white", "地图和文明设置", canvas.width / 2, 25, 4, "center");
         outlineText.drawLine(ctx, 0, 36, canvas.width, 36, "white", 3);
 
         let startY = 60;
 
-        outlineText.drawText(ctx, 18, "white", "Region Name:", 0, startY, 4, "left");           startY += 55;
-        outlineText.drawText(ctx, 18, "white", "Map Seed:", 0, startY, 4, "left");              startY += 55;
-        outlineText.drawText(ctx, 18, "white", "Terrain Definition:", 0, startY, 4, "left");    startY += 45;
-        outlineText.drawText(ctx, 18, "white", "Scenery Density:", 0, startY, 4, "left");       startY += 45;
-        outlineText.drawText(ctx, 18, "white", "Water Level:", 0, startY, 4, "left");           startY += 45;
-        outlineText.drawText(ctx, 18, "white", "Moisture Level:", 0, startY, 4, "left");        startY += 45;
-        outlineText.drawText(ctx, 18, "white", "Map Size:", 0, startY, 4, "left");              startY += 25;
-        outlineText.drawText(ctx, 18, "white", "    Medium    Large", 0, startY, 4, "left");
+        outlineText.drawText(ctx, 18, "white", "区域名称:", 0, startY, 4, "left");           startY += 55;
+        outlineText.drawText(ctx, 18, "white", "地图种子:", 0, startY, 4, "left");              startY += 55;
+        outlineText.drawText(ctx, 18, "white", "地形定义:", 0, startY, 4, "left");    startY += 45;
+        outlineText.drawText(ctx, 18, "white", "景观密度:", 0, startY, 4, "left");       startY += 45;
+        outlineText.drawText(ctx, 18, "white", "水源等级:", 0, startY, 4, "left");           startY += 45;
+        outlineText.drawText(ctx, 18, "white", "湿度等级:", 0, startY, 4, "left");        startY += 45;
+        outlineText.drawText(ctx, 18, "white", "地图尺寸:", 0, startY, 4, "left");              startY += 25;
+        outlineText.drawText(ctx, 18, "white", "    中    大", 0, startY, 4, "left");
 
-        outlineText.drawText(ctx, 28, "white", "Presets", 625, 70, 4, "center");
+        outlineText.drawText(ctx, 28, "white", "预设", 625, 70, 4, "center");
         outlineText.drawLine(ctx, 560, 80, 690, 80, "white", 3);
         outlineText.drawLine(ctx, 550, 36, 550, 380, "white", 3);
     }
@@ -2018,7 +2018,7 @@ class PreviewError{
 
         let outlineText = new OutlineText();
 
-        outlineText.drawText(ctx, 24, "white", "Generation Warning", (canvas.width / 2), 25, 4, "center");
+        outlineText.drawText(ctx, 24, "white", "生成警告", (canvas.width / 2), 25, 4, "center");
         outlineText.drawLine(ctx, 0, 36, canvas.width, 36, "white", 2);
 
         let startY = 56;
@@ -2033,11 +2033,11 @@ class PreviewError{
 
         if (missingTerrain.length > 0) {
 
-            outlineText.drawWrapText(ctx, 16, "red", `Map has no ${missingTerrain.join(", ")} tiles.`, 0, startY, 4, "left", canvas.width, 18);
+            outlineText.drawWrapText(ctx, 16, "red", `地图没有 ${missingTerrain.join(", ")} 地块.`, 0, startY, 4, "left", canvas.width, 18);
             if (!this.boardCheck.landmark) startY += 40;
         }
         
-        if (!this.boardCheck.landmark) outlineText.drawText(ctx, 16, "red", `Map has no landmark tiles.`, 0, startY, 4, "left");
+        if (!this.boardCheck.landmark) outlineText.drawText(ctx, 16, "red", `地图没有 地标 地块.`, 0, startY, 4, "left");
 
         let imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
         canvas.height = startY + 5;
@@ -2074,21 +2074,21 @@ class InspectPopup{
         let outlineText = new OutlineText();
         let numberHelper = new NumberHelper();
 
-        outlineText.drawText(ctx, 20, "white", "Tile Inspector", (canvas.width / 2), 15, 4, "center");
+        outlineText.drawText(ctx, 20, "white", "地块检查员", (canvas.width / 2), 15, 4, "center");
         outlineText.drawLine(ctx, 0, 25, canvas.width, 25, "white", 2);
 
         let startY = 45;
         let incY = 20;
-        outlineText.drawText(ctx, 15, "white", `Position:   ${this.selPos.x}x, ${this.selPos.y}y`, 0, startY, 4, "left"); startY += incY;
+        outlineText.drawText(ctx, 15, "white", `位置:   ${this.selPos.x}x, ${this.selPos.y}y`, 0, startY, 4, "left"); startY += incY;
         let tileString = GROUND_TILE_STRINGS[this.groundTile];
         tileString = tileString.charAt(0).toUpperCase() + tileString.slice(1);
-        outlineText.drawText(ctx, 15, "white", `Terrain:    ${tileString}`, 0, startY, 4, "left");
+        outlineText.drawText(ctx, 15, "white", `地形:    ${tileString}`, 0, startY, 4, "left");
 
         if (this.boostTile != 100) {
 
             startY += incY;
             let boostString = `${this.boostTile}%`;
-            outlineText.drawText(ctx, 15, "white", `Tile Boost: ${boostString}`, 0, startY, 4, "left");
+            outlineText.drawText(ctx, 15, "white", `地块提升: ${boostString}`, 0, startY, 4, "left");
         }
 
         if (this.selTile.type == "landmark") {
@@ -2106,7 +2106,7 @@ class InspectPopup{
             //#endregion
 
             if (cost == "NaN" || cost == "0") outlineText.drawText(ctx, 15, "white", `Landmark:   ${landmarkString}`, 0, startY, 4, "left");
-            else outlineText.drawText(ctx, 15, "white", `Landmark:   ${landmarkString} ($${cost} to remove)`, 0, startY, 4, "left");
+            else outlineText.drawText(ctx, 15, "white", `地标:   ${landmarkString} ($${cost} 去移除)`, 0, startY, 4, "left");
         }
         else if (this.selTile.type == "tower") {
 
@@ -2125,17 +2125,17 @@ class InspectPopup{
             //#endregion
 
             //#region Write building stats
-            outlineText.drawText(ctx, 15, "white", `Tower:      ${buildingData.building_name}`, 0, startY, 4, "left"); startY += incY;
-            outlineText.drawText(ctx, 15, "white", `Earns:      $${earnings}/s`, 0, startY, 4, "left");
+            outlineText.drawText(ctx, 15, "white", `塔:      ${buildingData.building_name}`, 0, startY, 4, "left"); startY += incY;
+            outlineText.drawText(ctx, 15, "white", `赚取:      $${earnings}/秒`, 0, startY, 4, "left");
             if (population != "0") {
 
                 startY += incY;
-                outlineText.drawText(ctx, 15, "white", `Population: ${population} humans`, 0, startY, 4, "left");
+                outlineText.drawText(ctx, 15, "white", `人口: ${population} 人`, 0, startY, 4, "left");
             } 
             if (buildingData.requires_path && !metaData.bordersPath) {
 
                 startY += incY;
-                outlineText.drawText(ctx, 15, "red", `Requires path for full production!`, 0, startY, 4, "left");
+                outlineText.drawText(ctx, 15, "red", `需要路径以完整生产!`, 0, startY, 4, "left");
             }
             //#endregion
 
@@ -2146,8 +2146,8 @@ class InspectPopup{
 
             let pathData = PATH_DATA[this.selTile.metaData.pathId - 1];
 
-            outlineText.drawText(ctx, 15, "white", `Path:       ${pathData.building_name}`, 0, startY, 4, "left"); startY += incY;
-            outlineText.drawText(ctx, 15, "white", `Bonus:      ${pathData.quality}x to adjacent tiles`, 0, startY, 4, "left");
+            outlineText.drawText(ctx, 15, "white", `路径:       ${pathData.building_name}`, 0, startY, 4, "left"); startY += incY;
+            outlineText.drawText(ctx, 15, "white", `奖励:      ${pathData.quality}x 到相邻地块`, 0, startY, 4, "left");
         }
         else if (this.selTile.type == "scenery") {
 
@@ -2156,7 +2156,7 @@ class InspectPopup{
             let metaData = this.selTile.metaData;
             let sceneryData = SCENERY_DATA[metaData.sceneryId - 1];
 
-            outlineText.drawText(ctx, 15, "white", `Scenery:    ${sceneryData.building_name}`, 0, startY, 4, "left");
+            outlineText.drawText(ctx, 15, "white", `风景:    ${sceneryData.building_name}`, 0, startY, 4, "left");
         }
 
         // Resource production
@@ -2240,7 +2240,7 @@ class PatchNoteCanvas{
         let startY = 64;
         let incY = 20;
 
-        outlineText.drawText(ctx, 30, "white", "Patchnotes", (canvas.width / 2), 25, 4, "center");
+        outlineText.drawText(ctx, 30, "white", "更新日志", (canvas.width / 2), 25, 4, "center");
         outlineText.drawLine(ctx, 0, 36, canvas.width, 36, "white", 4);
 
         for (let i = UPDATE_PATCHNOTES.length - 1; i >= 0; i--) {
@@ -2283,7 +2283,7 @@ class PatchNoteCanvas{
         canvas.height = Math.max(startY, 600);
         ctx.putImageData(imageData, 0, 0);
 
-        outlineText.drawText(ctx, 14, "white", "Click Popup to Return to Game", canvas.width - 5, canvas.height - 5, 4, "right");
+        outlineText.drawText(ctx, 14, "white", "点击浮窗以返回游戏", canvas.width - 5, canvas.height - 5, 4, "right");
     }
 
     draw(canvas, ctx) {
@@ -2403,7 +2403,7 @@ class HintCanvas{
 
         let outlineText = new OutlineText();
 
-        outlineText.drawText(ctx, 24, "white", "Overview", (canvas.width / 2), 20, 4, "center");
+        outlineText.drawText(ctx, 24, "white", "概览", (canvas.width / 2), 20, 4, "center");
         outlineText.drawLine(ctx, 0, 26, canvas.width, 26, "white", 2);
 
         let startY = 50;
@@ -2416,7 +2416,7 @@ class HintCanvas{
 
                 if (!hasWrittenTutorial) {
 
-                    outlineText.drawText(ctx, 20, "white", "Tutorial", 0, startY, 4, "left"); startY += 5;
+                    outlineText.drawText(ctx, 20, "white", "教程", 0, startY, 4, "left"); startY += 5;
                     outlineText.drawLine(ctx, 0, startY, canvas.width, startY, "white", 2); startY += incY + 3;
                     hasWrittenTutorial = true;
                 }
@@ -2432,7 +2432,7 @@ class HintCanvas{
         if (hasWrittenTutorial) startY -= incY;
 
         //#region Needs
-        outlineText.drawText(ctx, 20, "white", "Region Needs", 0, startY, 4, "left"); startY += 5;
+        outlineText.drawText(ctx, 20, "white", "地区需求", 0, startY, 4, "left"); startY += 5;
         outlineText.drawLine(ctx, 0, startY, canvas.width, startY, "white", 2); startY += incY + 3;
 
         // there are probably better ways to do this lmao
@@ -2483,7 +2483,7 @@ class HintCanvas{
         }
         outlineText.drawText(
             ctx, 14, "white", 
-            `Happiness Bonus: ${Math.round((this.resourceBoost + Number.EPSILON) * 100) / 100}x`,
+            `幸福奖励: ${Math.round((this.resourceBoost + Number.EPSILON) * 100) / 100}x`,
             0, startY, 4, "left"
         );
         startY += incY;
@@ -2493,12 +2493,12 @@ class HintCanvas{
         if (this.#checkForErrors()) {
 
             startY += incY;
-            outlineText.drawText(ctx, 20, "white", "Board Errors", 0, startY, 4, "left"); startY += 5;
+            outlineText.drawText(ctx, 20, "white", "电路板错误", 0, startY, 4, "left"); startY += 5;
             outlineText.drawLine(ctx, 0, startY, canvas.width, startY, "white", 2); startY += incY + 3;
 
             if (this.roadlessBuildings != 0) {
 
-                outlineText.drawText(ctx, 16, "white", `• ${this.roadlessBuildings} missing paths`, 0, startY, 2, "left");
+                outlineText.drawText(ctx, 16, "white", `• ${this.roadlessBuildings} 缺少路径`, 0, startY, 2, "left");
             }
         }
         //#endregion
