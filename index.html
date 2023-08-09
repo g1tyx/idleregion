@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <!-- © 2023 - 2023 www.idleregion.com - All Rights Reserved. -->
+
+    <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title id="favicon-text">Idle Region</title>
+    <link id="favicon-image" rel="icon" type="image/x-icon" href="./res/images/ui/house-favicon/h6.ico?v=0-3-3a">
+
+    <meta name="description" content="The Idle City Builder">
+    <meta name="keywords" content="idle game, city builder, browser game">
+    <meta name="author" content="sam_chug">
+    <meta name="theme-color" content="#ffffff">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> -->
+
+    <meta property="og:title" content="Idle Region" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://idleregion.com/game/" />
+    <meta property="og:image" content="https://idleregion.com/game/res/images/ui/layout/backgrounds/thumbnail.png?v=0-3-3a" />
+    <meta property="og:description" content="The Idle City Builder" />
+    
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://idleregion.com/game/" />
+    <meta property="twitter:title" content="Idle Region" />
+    <meta property="twitter:description" content="The Idle City Builder" />
+    <meta property="twitter:image" content="https://idleregion.com/game/res/images/ui/layout/backgrounds/thumbnail.png?v=0-3-3a" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&family=Noto+Serif&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css?v=0-3-3a">
+
+    <!-- Game classes -->
+    <script defer src="./js/class/game-classes.js?v=0-3-3a"></script>
+    <script defer src="./js/class/canvas/ui-canvas.js?v=0-3-3a"></script>
+    <script defer src="./js/class/canvas/game-canvas.js?v=0-3-3a"></script>
+    
+    <!-- Game data -->
+    <script defer src="./js/data/definitions.js?v=0-3-3a"></script>
+    <script defer src="./js/data/dom-cache.js?v=0-3-3a"></script>
+    <script defer src="./js/data/tile-data.js?v=0-3-3a"></script>
+    <script defer src="./js/data/edict-data.js?v=0-3-3a"></script>
+    <script defer src="./js/data/update-strings.js?v=0-3-3a"></script>
+
+    <!-- Utils -->
+    <script defer src="./js/utils/utils.js?v=0-3-3a"></script>
+    <script defer src="./js/utils/draw.js?v=0-3-3a"></script>
+    <script defer src="./js/utils/noise.js?v=0-3-3a"></script>
+    <script defer src="./js/utils/event-listener.js?v=0-3-3a"></script>
+
+    <!-- Main -->
+    <script defer src="./js/main.js?v=0-3-3a"></script>
+
+</head>
+    <body>
+        <script src="chs.js"></script>
+        <script src="core.js"></script>
+        <div class="main-container">
+
+            <!-- Loading screen -->
+            <div class="loading-screen" id="loading-screen">
+
+                <div class="loading-title-holder">
+
+                    <div class="loading-title">Idle Region</div>
+                    <div class="loading-version" id="loading-version"></div>
+
+                </div>
+
+                <div class="loading-loading" id="loading-context">Loading</div>
+
+            </div>
+
+            <!-- Dialog alerts -->
+            <div id="alert-container">
+
+                <div id="alert-dialog"></div>
+                <div id="tooltip-dialog"></div>
+                
+            </div>
+
+            <!-- Interface -->
+            <div class="ui-container" id="ui-container">
+
+                <!-- Purchase buildings -->
+                <div id="building-container" class="building-container">
+                    
+                    <canvas id="edict-button"></canvas>
+                    <canvas id="tier-picker"></canvas>
+                    <canvas id="buy-quantity"></canvas>
+                    <div id="building-list" class="building-list scrollbar"></div>
+
+                </div>
+
+                <!-- News ticker -->
+                <div class="news-ticker-score-inventory-wrapper">
+
+                    <div id="news-ticker-container">
+
+                        <div class="news-ticker-holder">
+
+                            <div id="news-ticker-text">test text</div>
+
+                        </div>
+                    </div>
+
+                    <div class="score-inventory-wrapper">
+
+                        <!-- Stats -->
+                        <div class="score-container">
+                        
+                            <canvas class="score-canvas" id="region-name" width="242" height="48"></canvas>
+                            <canvas class="score-canvas" id="score-canvas"></canvas>
+                            <canvas class="score-canvas" id="click-rock" width="242" height="176"></canvas>
+                            <canvas class="score-canvas" id="powerups"></canvas>
+                        
+                        </div>
+                    
+                        <!-- Inventory -->
+                        <div class="inventory-container">
+                        
+                            <div class="inventory-control-container">
+                            
+                                <div class="inventory-holder">
+                                
+                                    <canvas id="inventory-left-arrow" class="inventory-arrow"></canvas>
+                                    <canvas id="inventory-slots"></canvas>
+                                    <canvas id="inventory-right-arrow" class="inventory-arrow"></canvas>
+                                
+                                </div>
+                            
+                                <div class="control-holder">
+                                
+                                    <canvas id="control-slots"></canvas>
+                                
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div id="place-type-holder" class="place-type-holder">
+
+                            <canvas class="place-type-selector" id="tile-type-building"></canvas>
+                            <canvas class="place-type-selector" id="tile-type-path"></canvas>
+                            <canvas class="place-type-selector" id="tile-type-scenery"></canvas>
+                        
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Performance -->
+                <div id="fps-holder" class="performance-container">
+
+                    <p id="fps"></p>
+
+                </div>
+
+                <!-- Achievement popup -->
+                <div id="achievement-popup"></div>
+
+                <!-- Options -->
+                <div class="options-panel">
+
+                    <canvas id="options-panel"></canvas>
+
+                </div>
+
+                <!-- Hints -->
+                <div id="hints-container" class="hints-container">
+
+                    <div id="hints-title" class="hints-title hints-title-show" onclick="EventListeners.toggleHintsPanel()">></div>
+                    <div id="hint-canvas-container" class="hints-panel scrollbar">
+
+                        <canvas id="hints-panel"></canvas>
+
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Game board -->
+            <div id="game-board" class="game-board">
+                
+                <canvas id="ground-tiles" class="canvas-board"></canvas>
+                <canvas id="reflect-canvas" class="canvas-board"></canvas>
+                <canvas id="grid-canvas" class="canvas-board"></canvas>
+                <canvas id="object-tiles" class="canvas-board"></canvas>
+                <canvas id="boost-canvas" class="canvas-board"></canvas>
+                <canvas id="border-tiles" class="canvas-board"></canvas>
+                <canvas id="effect-tiles" class="canvas-board"></canvas>
+                <canvas id="warning-tiles" class="canvas-board"></canvas>
+                <canvas id="cursor-tiles" class="canvas-board"></canvas>
+
+            </div>
+        </div>
+<!--客服 开始-->
+<script src="//g8hh.com.cn/static/js/jquery.min.js"></script>
+<link rel="stylesheet" href="//g8hh.com.cn/static/css/kf.css" type="text/css" media="screen" charset="utf-8">
+<script src="//g8hh.com.cn/static/js/kf.js"></script>
+<!-- 客服 结束 -->
+<!--站长统计-->
+<div style="display: none">
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?dbb7ff142f4d4b68546c93b9cd6e9328";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+        </div>
+    </body>
+</html>
