@@ -246,7 +246,7 @@ class CursorCanvas{
             else if (building.place_style == "shorewater") terrainString = "Must be placed on shores or water";
 
             outlineText.drawWrapText(
-                ctx, 16, "red", terrainString,
+                ctx, 16, "red", cnItem(terrainString),
                 (selectedPos.x * this.tileSize) + 16, 
                 ((selectedPos.y + 1) * this.tileSize) - 58,
                 2, "center", 160, 20

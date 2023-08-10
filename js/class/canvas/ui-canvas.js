@@ -2022,7 +2022,7 @@ class PreviewError{
         outlineText.drawLine(ctx, 0, 36, canvas.width, 36, "white", 2);
 
         let startY = 56;
-        outlineText.drawWrapText(ctx, 16, "white", START_ERROR_STRINGS[0], 0, startY, 4, "left", canvas.width, 20);
+        outlineText.drawWrapText(ctx, 16, "white", cnItem(START_ERROR_STRINGS[0]), 0, startY, 4, "left", canvas.width, 20);
         startY += 40;
 
         let missingTerrain = [];
