@@ -23,7 +23,7 @@ class OutlineText{
         ctx.textAlign = textAlign;
         ctx.strokeText(string, x, y);
         ctx.fillStyle = color;
-        ctx.fillText(string, x, y);
+        ctx.fillText(cnItem(string), x, y);
     }
 
     measureText(ctx, size, color, string, x, y, lineWidth, textAlign) {
@@ -2640,9 +2640,9 @@ class EdictText{
             }
 
             let stringColor = `hsla(${satisfaction * 120}, 100%, 50%, 0.85)`;
-            outlineText.drawFancyText(this.ctx, 30, "hsla(0, 0%, 0%, 0.66)", RESOURCE_STRINGS[i], 36, startY, 0, "left");
+            outlineText.drawFancyText(this.ctx, 30, "hsla(0, 0%, 0%, 0.66)", cnItem(RESOURCE_STRINGS[i]), 36, startY, 0, "left");
             startY += 28;
-            outlineText.drawFancyText(this.ctx, 26, stringColor, resourceString, 46, startY, 0, "left");
+            outlineText.drawFancyText(this.ctx, 26, stringColor, cnItem(resourceString), 46, startY, 0, "left");
             startY += incY;
         }
     }
