@@ -1546,7 +1546,7 @@ class BuildingTooltip{
         outlineText.drawText(ctx, 14, "white", `价格: $${price}`, 0, posY, 2, "left"); posY += incY;
         outlineText.drawText(ctx, 14, "white", `放置: ${placeStyle} tiles`, 0, posY, 2, "left"); posY += incY;
         outlineText.drawText(ctx, 14, "white", `${quality}x 产量到相邻地块`, 0, posY, 2, "left"); posY += incY;
-        if (placeAmount != 0) { outlineText.drawText(ctx, 14, "white", `${placeAmount} 放置的路径`, 0, posY, 2, "left"); posY += incY; }
+        if (placeAmount != 0) { outlineText.drawText(ctx, 14, "white", `${placeAmount} 放置的道路`, 0, posY, 2, "left"); posY += incY; }
 
         posY -= (incY - 10); 
         outlineText.drawLine(ctx, 0, posY, 150, posY, "white", 2);
@@ -1603,7 +1603,7 @@ class BuildingTooltip{
         outlineText.drawText(ctx, 14, "white", `放置: ${placeStyle} tiles`, 0, posY, 2, "left"); posY += incY;
         if (populationBonus > 0) { outlineText.drawText(ctx, 14, "white", `容纳 ${populationBonusString} 人`, 0, posY, 2, "left"); posY += incY; }
         if (boostBonus > 0) { outlineText.drawText(ctx, 14, "white", `提升生产 ${(boostBonus)}% 按比率`, 0, posY, 2, "left"); posY += incY; }
-        if (this.building.requires_path) { outlineText.drawText(ctx, 14, "white", `需要路径连接`, 0, posY, 2, "left"); posY += incY; }
+        if (this.building.requires_path) { outlineText.drawText(ctx, 14, "white", `需要道路连接`, 0, posY, 2, "left"); posY += incY; }
 
         if (earningSec > 0 || totalTowers > 0 || population > 0) {
 
@@ -2135,7 +2135,7 @@ class InspectPopup{
             if (buildingData.requires_path && !metaData.bordersPath) {
 
                 startY += incY;
-                outlineText.drawText(ctx, 15, "red", `需要路径以完整生产!`, 0, startY, 4, "left");
+                outlineText.drawText(ctx, 15, "red", `需要道路以完整生产!`, 0, startY, 4, "left");
             }
             //#endregion
 
@@ -2146,7 +2146,7 @@ class InspectPopup{
 
             let pathData = PATH_DATA[this.selTile.metaData.pathId - 1];
 
-            outlineText.drawText(ctx, 15, "white", `路径:       ${pathData.building_name}`, 0, startY, 4, "left"); startY += incY;
+            outlineText.drawText(ctx, 15, "white", `道路:       ${pathData.building_name}`, 0, startY, 4, "left"); startY += incY;
             outlineText.drawText(ctx, 15, "white", `奖励:      ${pathData.quality}x 到相邻地块`, 0, startY, 4, "left");
         }
         else if (this.selTile.type == "scenery") {
@@ -2498,7 +2498,7 @@ class HintCanvas{
 
             if (this.roadlessBuildings != 0) {
 
-                outlineText.drawText(ctx, 16, "white", `• ${this.roadlessBuildings} 缺少路径`, 0, startY, 2, "left");
+                outlineText.drawText(ctx, 16, "white", `• ${this.roadlessBuildings} 缺少道路`, 0, startY, 2, "left");
             }
         }
         //#endregion
