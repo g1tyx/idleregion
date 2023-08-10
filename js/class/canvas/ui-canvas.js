@@ -201,7 +201,7 @@ class RegionNameCanvas{
 
         let outlineText = new OutlineText();
         let fontSize = Math.min((230 / this.regionName.length) * 1.5, 26);
-        outlineText.drawText(ctx, fontSize, "white", this.regionName, (canvas.width / 2), 32, 4, "center");
+        outlineText.drawText(ctx, fontSize, "white", cnItem(this.regionName), (canvas.width / 2), 32, 4, "center");
     }
 
     draw(canvas, ctx) {
@@ -504,7 +504,7 @@ class BuildingButton{
             outlineText.drawGradientText(
                 ctx, 24, 
                 textColor,
-                name,
+                cnItem(name),
                 48, 32,
                 4, "left"
             );
@@ -514,7 +514,7 @@ class BuildingButton{
             outlineText.drawText(
                 ctx, 24, 
                 textColor,
-                name,
+                cnItem(name),
                 48, 32,
                 4, "left"
             );
@@ -532,7 +532,7 @@ class BuildingButton{
         );
         outlineText.drawText(ctx, 20, 
             "white",
-            `Owned: ${owned}`,
+            `拥有: ${owned}`,
             104, 65,
             4, "left"
         );
@@ -772,7 +772,7 @@ class Inventory{
         if (this.tier != 0 || this.placeType != "building") return;
 
         let outlineText = new OutlineText();
-        outlineText.drawWrapText(ctx, 24, "white", "Place Me!", ((this.slotSize - this.itemSize) / 2) + 32, 36, 4, "center", 64, 24);
+        outlineText.drawWrapText(ctx, 24, "white", "把我放地图上!", ((this.slotSize - this.itemSize) / 2) + 32, 36, 4, "center", 64, 24);
     }
 
     draw (canvas, ctx, inventory, balance, settings, placeType, edictCache, hasPlacedFirst) {
@@ -1544,7 +1544,7 @@ class BuildingTooltip{
         let incY = 18;
 
         outlineText.drawText(ctx, 14, "white", `价格: $${price}`, 0, posY, 2, "left"); posY += incY;
-        outlineText.drawText(ctx, 14, "white", `放置: ${placeStyle} tiles`, 0, posY, 2, "left"); posY += incY;
+        outlineText.drawText(ctx, 14, "white", `放置:`+ cnItem(`${placeStyle}`) +`地块`, 0, posY, 2, "left"); posY += incY;
         outlineText.drawText(ctx, 14, "white", `${quality}x 产量到相邻地块`, 0, posY, 2, "left"); posY += incY;
         if (placeAmount != 0) { outlineText.drawText(ctx, 14, "white", `${placeAmount} 放置的道路`, 0, posY, 2, "left"); posY += incY; }
 
@@ -1555,13 +1555,13 @@ class BuildingTooltip{
         let resourceStrings = this.#getResourceStringArray();
         for (let i = 0; i < resourceStrings.length; i++) {
 
-            outlineText.drawText(ctx, 14, "white", resourceStrings[i], 0, posY, 2, "left"); posY += incY;
+            outlineText.drawText(ctx, 14, "white", cnItem(resourceStrings[i]), 0, posY, 2, "left"); posY += incY;
         }
 
         let needStrings = this.#getNeedsStringArray();
         for (let i = 0; i < needStrings.length; i++) {
 
-            outlineText.drawText(ctx, 14, "white", needStrings[i], 0, posY, 2, "left"); posY += incY;
+            outlineText.drawText(ctx, 14, "white", cnItem(needStrings[i]), 0, posY, 2, "left"); posY += incY;
         }
         //#endregion
 
@@ -1600,7 +1600,7 @@ class BuildingTooltip{
 
         //#region Building stats
         outlineText.drawText(ctx, 14, "white", `基础生产: $${baseYield}`, 0, posY, 2, "left"); posY += incY;
-        outlineText.drawText(ctx, 14, "white", `放置: ${placeStyle} tiles`, 0, posY, 2, "left"); posY += incY;
+        outlineText.drawText(ctx, 14, "white", `放置: `+ cnItem(`${placeStyle}`) +`地块`, 0, posY, 2, "left"); posY += incY;
         if (populationBonus > 0) { outlineText.drawText(ctx, 14, "white", `容纳 ${populationBonusString} 人`, 0, posY, 2, "left"); posY += incY; }
         if (boostBonus > 0) { outlineText.drawText(ctx, 14, "white", `提升生产 ${(boostBonus)}% 按比率`, 0, posY, 2, "left"); posY += incY; }
         if (this.building.requires_path) { outlineText.drawText(ctx, 14, "white", `需要道路连接`, 0, posY, 2, "left"); posY += incY; }
@@ -1663,7 +1663,7 @@ class BuildingTooltip{
         let incY = 18;
 
         outlineText.drawText(ctx, 14, "white", `价格: $${price}`, 0, posY, 2, "left"); posY += incY;
-        outlineText.drawText(ctx, 14, "white", `放置: ${placeStyle} tiles`, 0, posY, 2, "left"); posY += incY;
+        outlineText.drawText(ctx, 14, "white", `放置: `+ cnItem(`${placeStyle}`) +`地块`, 0, posY, 2, "left"); posY += incY;
         if (placeAmount != 0) { outlineText.drawText(ctx, 14, "white", `${placeAmount} 放置的风景`, 0, posY, 2, "left"); posY += incY; }
         //#endregion
 
@@ -2181,7 +2181,7 @@ class InspectPopup{
                     let resourceValue = Math.round((metaData.resource[i] + Number.EPSILON) * 100) / 100;
                     productionString += `${resourceValue} ${RESOURCE_STRINGS[i]}`
                     
-                    outlineText.drawText(ctx, 15, "white", productionString, 0, startY, 4, "left");
+                    outlineText.drawText(ctx, 15, "white", cnItem(productionString), 0, startY, 4, "left");
                 }
             }
         }
@@ -2208,7 +2208,7 @@ class InspectPopup{
                     let needsValue = Math.round((metaData.needs[i] + Number.EPSILON) * 100) / 100;
                     requiresString += `${needsValue} ${RESOURCE_STRINGS[i]}`
                     
-                    outlineText.drawText(ctx, 15, "white", requiresString, 0, startY, 4, "left");
+                    outlineText.drawText(ctx, 15, "white", cnItem(requiresString), 0, startY, 4, "left");
                 }
             }
         }
@@ -2364,7 +2364,7 @@ class TileTypeSelector{
 
         let selColor = (this.selected) ? "white" : "grey";
 
-        outlineText.drawText(ctx, 24, selColor, typeString, 10, 20, 4, "left");
+        outlineText.drawText(ctx, 24, selColor, cnItem(typeString), 10, 20, 4, "left");
     }
 
     draw(canvas, ctx) {
@@ -2462,7 +2462,7 @@ class HintCanvas{
                 
                 outlineText.drawText(
                     ctx, 14, color, 
-                    `${RESOURCE_STRINGS[i]}:${spacing[i]}${roundResource}/${roundNeeds}`,
+                    cnItem(`${RESOURCE_STRINGS[i]}:${spacing[i]}${roundResource}/${roundNeeds}`),
                     0, startY, 4, "left"
                 );
             }
@@ -2475,7 +2475,7 @@ class HintCanvas{
             
                 outlineText.drawText(
                     ctx, 14, color, 
-                    `${RESOURCE_STRINGS[i]}:${spacing[i]}${satisfactionString}`,
+                    cnItem(`${RESOURCE_STRINGS[i]}:${spacing[i]}${satisfactionString}`),
                     0, startY, 4, "left"
                 );
             }
@@ -2498,7 +2498,7 @@ class HintCanvas{
 
             if (this.roadlessBuildings != 0) {
 
-                outlineText.drawText(ctx, 16, "white", `• ${this.roadlessBuildings} 缺少道路`, 0, startY, 2, "left");
+                outlineText.drawText(ctx, 16, "white", cnItem(`• ${this.roadlessBuildings}`) + ` 缺少道路`, 0, startY, 2, "left");
             }
         }
         //#endregion

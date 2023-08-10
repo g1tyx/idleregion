@@ -118,7 +118,7 @@ const BUILDING_SPRITE_CACHE = [];
 const SETTINGS_PATCHNOTES = document.createElement("input");
 SETTINGS_PATCHNOTES.setAttribute("type", "button");
 SETTINGS_PATCHNOTES.classList.add("options-patch-button", "options-button");
-SETTINGS_PATCHNOTES.value = "View Patchnotes";
+SETTINGS_PATCHNOTES.value = "查看更新日志";
 SETTINGS_PATCHNOTES.style.left = "188px";
 SETTINGS_PATCHNOTES.addEventListener("click", function() {
 
@@ -144,7 +144,7 @@ SETTINGS_PATCHNOTES.addEventListener("click", function() {
 const SETTINGS_FORCESAVE = document.createElement("input");
 SETTINGS_FORCESAVE.setAttribute("type", "button");
 SETTINGS_FORCESAVE.classList.add("options-button");
-SETTINGS_FORCESAVE.value = "Save Game";
+SETTINGS_FORCESAVE.value = "保存游戏";
 SETTINGS_FORCESAVE.style.left = "188px";
 SETTINGS_FORCESAVE.addEventListener("click", function() {
 
@@ -155,7 +155,7 @@ SETTINGS_FORCESAVE.addEventListener("click", function() {
 const SETTINGS_DOWNLOADSAVE = document.createElement("input");
 SETTINGS_DOWNLOADSAVE.setAttribute("type", "button");
 SETTINGS_DOWNLOADSAVE.classList.add("options-button");
-SETTINGS_DOWNLOADSAVE.value = "Export Save";
+SETTINGS_DOWNLOADSAVE.value = "导出存档";
 SETTINGS_DOWNLOADSAVE.style.left = "311px";
 SETTINGS_DOWNLOADSAVE.addEventListener("click", function() {
 
@@ -166,7 +166,7 @@ SETTINGS_DOWNLOADSAVE.addEventListener("click", function() {
 const SETTINGS_IMPORTSAVE = document.createElement("input");
 SETTINGS_IMPORTSAVE.setAttribute("type", "button");
 SETTINGS_IMPORTSAVE.classList.add("options-button");
-SETTINGS_IMPORTSAVE.value = "Import Save";
+SETTINGS_IMPORTSAVE.value = "导入存档";
 SETTINGS_IMPORTSAVE.style.left = "452px";
 SETTINGS_IMPORTSAVE.addEventListener("click", function() {
 
@@ -192,7 +192,7 @@ SETTINGS_IMPORTSAVE.addEventListener("click", function() {
 const SETTINGS_DELETESAVE = document.createElement("input");
 SETTINGS_DELETESAVE.setAttribute("type", "button");
 SETTINGS_DELETESAVE.classList.add("options-button-delete");
-SETTINGS_DELETESAVE.value = "Delete Save";
+SETTINGS_DELETESAVE.value = "删除存档";
 SETTINGS_DELETESAVE.style.color = "white";
 SETTINGS_DELETESAVE.style.left = "188px";
 SETTINGS_DELETESAVE.addEventListener("click", function() {
@@ -202,7 +202,7 @@ SETTINGS_DELETESAVE.addEventListener("click", function() {
     let confirmDelete = document.createElement("input");
     confirmDelete.setAttribute("type", "button");
     confirmDelete.classList.add("options-button-delete");
-    confirmDelete.value = "Click to Confirm";
+    confirmDelete.value = "点击确认";
     confirmDelete.style.boxShadow = `0px 0px 10px 5px rgba(255, 128, 128, 0.5)`;
     confirmDelete.style.color = "white";
     confirmDelete.style.bottom = "20px";
@@ -220,7 +220,7 @@ SETTINGS_DELETESAVE.addEventListener("click", function() {
 const SETTINGS_CLEARTILES = document.createElement("input");
 SETTINGS_CLEARTILES.setAttribute("type", "button");
 SETTINGS_CLEARTILES.classList.add("options-button-delete");
-SETTINGS_CLEARTILES.value = "Clear ALL Tiles";
+SETTINGS_CLEARTILES.value = "清除全部地块";
 SETTINGS_CLEARTILES.style.color = "white";
 SETTINGS_CLEARTILES.style.left = "188px";
 SETTINGS_CLEARTILES.addEventListener("click", function() {
@@ -230,7 +230,7 @@ SETTINGS_CLEARTILES.addEventListener("click", function() {
     let confirmClear = document.createElement("input");
     confirmClear.setAttribute("type", "button");
     confirmClear.classList.add("options-button-delete");
-    confirmClear.value = "Click to Confirm";
+    confirmClear.value = "点击确认";
     confirmClear.style.boxShadow = `0px 0px 10px 5px rgba(255, 128, 128, 0.5)`;
     confirmClear.style.color = "white";
     confirmClear.style.bottom = "70px";
