@@ -277,7 +277,7 @@ class ScoreCanvas{
             this.outlineText.drawText(
                 ctx, 20, 
                 "white",
-                `$${earnings}/s`,
+                `$${earnings}/秒`,
                 14, 68,
                 4, "left"
             );
@@ -289,7 +289,7 @@ class ScoreCanvas{
             ctx.drawImage(UI_SCORE_HOLDER, 0, 80, 256, 40, 0, 80, 272, 40);
             this.outlineText.drawText(ctx, 20, 
                 "white",
-                `Humans: ${population}`,
+                `人口: ${population}`,
                 14, 104,
                 4, "left"
             );
@@ -1544,7 +1544,7 @@ class BuildingTooltip{
         let incY = 18;
 
         outlineText.drawText(ctx, 14, "white", `价格: $${price}`, 0, posY, 2, "left"); posY += incY;
-        outlineText.drawText(ctx, 14, "white", `放置:`+ cnItem(`${placeStyle}`) +`地块`, 0, posY, 2, "left"); posY += incY;
+        outlineText.drawText(ctx, 14, "white", `放置:`+ cnItem(`${placeStyle}`) +` 地块`, 0, posY, 2, "left"); posY += incY;
         outlineText.drawText(ctx, 14, "white", `${quality}x 产量到相邻地块`, 0, posY, 2, "left"); posY += incY;
         if (placeAmount != 0) { outlineText.drawText(ctx, 14, "white", `${placeAmount} 放置的道路`, 0, posY, 2, "left"); posY += incY; }
 
@@ -1600,7 +1600,7 @@ class BuildingTooltip{
 
         //#region Building stats
         outlineText.drawText(ctx, 14, "white", `基础生产: $${baseYield}`, 0, posY, 2, "left"); posY += incY;
-        outlineText.drawText(ctx, 14, "white", `放置: `+ cnItem(`${placeStyle}`) +`地块`, 0, posY, 2, "left"); posY += incY;
+        outlineText.drawText(ctx, 14, "white", `放置: `+ cnItem(`${placeStyle}`) +` 地块`, 0, posY, 2, "left"); posY += incY;
         if (populationBonus > 0) { outlineText.drawText(ctx, 14, "white", `容纳 ${populationBonusString} 人`, 0, posY, 2, "left"); posY += incY; }
         if (boostBonus > 0) { outlineText.drawText(ctx, 14, "white", `提升生产 ${(boostBonus)}% 按比率`, 0, posY, 2, "left"); posY += incY; }
         if (this.building.requires_path) { outlineText.drawText(ctx, 14, "white", `需要道路连接`, 0, posY, 2, "left"); posY += incY; }
@@ -1663,7 +1663,7 @@ class BuildingTooltip{
         let incY = 18;
 
         outlineText.drawText(ctx, 14, "white", `价格: $${price}`, 0, posY, 2, "left"); posY += incY;
-        outlineText.drawText(ctx, 14, "white", `放置: `+ cnItem(`${placeStyle}`) +`地块`, 0, posY, 2, "left"); posY += incY;
+        outlineText.drawText(ctx, 14, "white", `放置: `+ cnItem(`${placeStyle}`) +` 地块`, 0, posY, 2, "left"); posY += incY;
         if (placeAmount != 0) { outlineText.drawText(ctx, 14, "white", `${placeAmount} 放置的风景`, 0, posY, 2, "left"); posY += incY; }
         //#endregion
 
@@ -2591,13 +2591,13 @@ class EdictText{
     #drawTitle() {
 
         let outlineText = new OutlineText();
-        outlineText.drawFancyText(this.ctx, 72, "hsla(0, 0%, 0%, 0.66)", EDICT_BOOK_DATA[this.page].title, 160, 96, 0, "center");
+        outlineText.drawFancyText(this.ctx, 72, "hsla(0, 0%, 0%, 0.66)", cnItem(EDICT_BOOK_DATA[this.page].title), 160, 96, 0, "center");
 
         if (this.page == 0) this.#writeResources();
 
         if (this.page + 1 <= EDICT_BOOK_DATA.length - 1) {
 
-            outlineText.drawFancyText(this.ctx, 72, "hsla(0, 0%, 0%, 0.66)", EDICT_BOOK_DATA[this.page + 1].title, 448, 96, 0, "center");
+            outlineText.drawFancyText(this.ctx, 72, "hsla(0, 0%, 0%, 0.66)", cnItem(EDICT_BOOK_DATA[this.page + 1].title), 448, 96, 0, "center");
             outlineText.drawLine(this.ctx, 324, 108, 564, 108, "hsla(0, 0%, 0%, 0.33)", 8);
             outlineText.drawLine(this.ctx, 326, 108, 562, 108, "hsla(0, 0%, 0%, 0.66)", 4);
         }
