@@ -943,25 +943,25 @@ class GameHelpPanel{
                 outlineText.drawLine(ctx, 0, startY, canvas.width, startY, "white", 1);
                 startY += 25;
             }
-            outlineText.drawWrapText(ctx, 16, "gold", HELP_STRINGS[i].title, (canvas.width / 2), startY, 4, "center", canvas.width, 20);
+            outlineText.drawWrapText(ctx, 16, "gold", cnItem(HELP_STRINGS[i].title), (canvas.width / 2), startY, 4, "center", canvas.width, 20);
             startY += 15;
             outlineText.drawLine(ctx, 0, startY, canvas.width, startY, "white", 1);
             startY += 25;
 
             for (let j = 0; j < HELP_STRINGS[i].strings.length; j++) {
 
-                let stringLength = outlineText.measureText(ctx, 14, "white", HELP_STRINGS[i].strings[j], 0, startY, 4, "left");
+                let stringLength = outlineText.measureText(ctx, 14, "white", cnItem(HELP_STRINGS[i].strings[j]), 0, startY, 4, "left");
                 
                 if (stringLength >= canvas.width - 15) {
 
-                    outlineText.drawWrapText(ctx, 14, "white", HELP_STRINGS[i].strings[j], 0, startY, 4, "left", canvas.width - 15, 20);
+                    outlineText.drawWrapText(ctx, 14, "white", cnItem(HELP_STRINGS[i].strings[j]), 0, startY, 4, "left", canvas.width - 15, 20);
 
                     let lineInc = Math.ceil(stringLength / (canvas.width - 15)) * 25;
                     startY += lineInc;
                 }
                 else {
 
-                    outlineText.drawText(ctx, 14, "white", HELP_STRINGS[i].strings[j], 0, startY, 4, "left");
+                    outlineText.drawText(ctx, 14, "white", cnItem(HELP_STRINGS[i].strings[j]), 0, startY, 4, "left");
                     startY += 25;
                 }
             }
@@ -1151,17 +1151,17 @@ class ToolTip{
 
         let outlineText = new OutlineText();
 
-        let textWidth = outlineText.measureText(ctx, 16, "white", this.tooltipData.description, canvas.width / 2, 45, 4, "center");
-        let titleWidth = outlineText.measureText(ctx, 20, "gold", this.tooltipData.name, canvas.width / 2, 16, 4, "center");
+        let textWidth = outlineText.measureText(ctx, 16, "white", cnItem(this.tooltipData.description), canvas.width / 2, 45, 4, "center");
+        let titleWidth = outlineText.measureText(ctx, 20, "gold", cnItem(this.tooltipData.name), canvas.width / 2, 16, 4, "center");
         let newWidth = Math.max(textWidth, titleWidth);
 
         let imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
         canvas.width = Math.max((newWidth + 10), 240);
         ctx.putImageData(imageData, 0, 0);
 
-        outlineText.drawText(ctx, 20, "gold", this.tooltipData.name, canvas.width / 2, 16, 4, "center");
+        outlineText.drawText(ctx, 20, "gold", cnItem(this.tooltipData.name), canvas.width / 2, 16, 4, "center");
         outlineText.drawLine(ctx, 0, 23, canvas.width, 23, "white", 2);
-        outlineText.drawText(ctx, 16, "white", this.tooltipData.description, canvas.width / 2, 45, 4, "center");
+        outlineText.drawText(ctx, 16, "white", cnItem(this.tooltipData.description), canvas.width / 2, 45, 4, "center");
 
         if (this.tooltipData.hasOwnProperty("cost")) {
 
@@ -1199,7 +1199,7 @@ class GameSettingsPanel{
         else if (page == "audio") settingsData = SETTINGS_STRINGS[2];
         else if (page == "social") settingsData = SETTINGS_STRINGS[3];
 
-        outlineText.drawText(ctx, 30, "white", settingsData.title, (canvas.width / 2), 25, 4, "center");
+        outlineText.drawText(ctx, 30, "white", cnItem(settingsData.title), (canvas.width / 2), 25, 4, "center");
         outlineText.drawLine(ctx, 0, 36, canvas.width, 36, "white", 4);
 
         let startY = 72;
@@ -1214,7 +1214,7 @@ class GameSettingsPanel{
                 startY += incY;
                 continue;
             }
-            outlineText.drawText(ctx, 16, "white", settingsData.strings[i], 40, startY, 4, "left");
+            outlineText.drawText(ctx, 16, "white", cnItem(settingsData.strings[i]), 40, startY, 4, "left");
             startY += incY;
         }
     }
@@ -1283,7 +1283,7 @@ class TierSelector{
 
         let outlineText = new OutlineText();
         let tierString = `Tier: ${this.tier + 1}`;
-        outlineText.drawText(ctx, 26, "LightGreen", tierString, ctx.canvas.width / 2, 28, 4, "center");
+        outlineText.drawText(ctx, 26, "LightGreen", cnItem(tierString), ctx.canvas.width / 2, 28, 4, "center");
     }
 
     draw(canvas, ctx) {
@@ -1421,14 +1421,14 @@ class AlertCanvas{
         this.#processContext();
 
         // Title
-        outlineText.drawText(ctx, 20, "white", this.alertObj.title, canvas.width / 2, 20, 6, "center");
+        outlineText.drawText(ctx, 20, "white", cnItem(this.alertObj.title), canvas.width / 2, 20, 6, "center");
         outlineText.drawLine(ctx, 0, 30, canvas.width, 30, "white", 2);
 
         // Lines
         let extraLine = 0;
         for (let i = 0; i < this.alertObj.strings.length; i++) {
 
-            outlineText.drawWrapText(ctx, 14, "white", this.alertObj.strings[i], 0, 55 + ((i + extraLine) * 30), 4, "left", canvas.width, 20);
+            outlineText.drawWrapText(ctx, 14, "white", cnItem(this.alertObj.strings[i]), 0, 55 + ((i + extraLine) * 30), 4, "left", canvas.width, 20);
             if (this.alertObj.strings[i].length >= 47) extraLine++;
         }
     }
@@ -1471,8 +1471,8 @@ class BuildingTooltip{
     #drawTitle(canvas, ctx) {
 
         let outlineText = new OutlineText();
-        outlineText.drawText(ctx, 22, "white", this.building.building_name, 2, 18, 4, "left");
-        outlineText.drawText(ctx, 12, `hsla(0, 0%, 60%, 1)`, this.building.description, 2, 34, 4, "left");
+        outlineText.drawText(ctx, 22, "white", cnItem(this.building.building_name), 2, 18, 4, "left");
+        outlineText.drawText(ctx, 12, `hsla(0, 0%, 60%, 1)`, cnItem(this.building.description), 2, 34, 4, "left");
 
         // Splitter
         outlineText.drawLine(ctx, 0, 40, canvas.width - 0, 40, "white", 2);
@@ -1545,8 +1545,8 @@ class BuildingTooltip{
 
         outlineText.drawText(ctx, 14, "white", `价格: $${price}`, 0, posY, 2, "left"); posY += incY;
         outlineText.drawText(ctx, 14, "white", `放置: ${placeStyle} tiles`, 0, posY, 2, "left"); posY += incY;
-        outlineText.drawText(ctx, 14, "white", `${quality}x yield to adjacent tiles`, 0, posY, 2, "left"); posY += incY;
-        if (placeAmount != 0) { outlineText.drawText(ctx, 14, "white", `${placeAmount} paths placed`, 0, posY, 2, "left"); posY += incY; }
+        outlineText.drawText(ctx, 14, "white", `${quality}x 产量到相邻地块`, 0, posY, 2, "left"); posY += incY;
+        if (placeAmount != 0) { outlineText.drawText(ctx, 14, "white", `${placeAmount} 放置的路径`, 0, posY, 2, "left"); posY += incY; }
 
         posY -= (incY - 10); 
         outlineText.drawLine(ctx, 0, posY, 150, posY, "white", 2);
@@ -1625,13 +1625,13 @@ class BuildingTooltip{
         let resourceStrings = this.#getResourceStringArray();
         for (let i = 0; i < resourceStrings.length; i++) {
 
-            outlineText.drawText(ctx, 14, "white", resourceStrings[i], 0, posY, 2, "left"); posY += incY;
+            outlineText.drawText(ctx, 14, "white", cnItem(resourceStrings[i]), 0, posY, 2, "left"); posY += incY;
         }
 
         let needStrings = this.#getNeedsStringArray();
         for (let i = 0; i < needStrings.length; i++) {
 
-            outlineText.drawText(ctx, 14, "white", needStrings[i], 0, posY, 2, "left"); posY += incY;
+            outlineText.drawText(ctx, 14, "white", cnItem(needStrings[i]), 0, posY, 2, "left"); posY += incY;
         }
         //#endregion
 
@@ -1675,13 +1675,13 @@ class BuildingTooltip{
         let resourceStrings = this.#getResourceStringArray();
         for (let i = 0; i < resourceStrings.length; i++) {
 
-            outlineText.drawText(ctx, 14, "white", resourceStrings[i], 0, posY, 2, "left"); posY += incY;
+            outlineText.drawText(ctx, 14, "white", cnItem(resourceStrings[i]), 0, posY, 2, "left"); posY += incY;
         }
 
         let needStrings = this.#getNeedsStringArray();
         for (let i = 0; i < needStrings.length; i++) {
 
-            outlineText.drawText(ctx, 14, "white", needStrings[i], 0, posY, 2, "left"); posY += incY;
+            outlineText.drawText(ctx, 14, "white", cnItem(needStrings[i]), 0, posY, 2, "left"); posY += incY;
         }
         //#endregion
 
@@ -2421,10 +2421,10 @@ class HintCanvas{
                     hasWrittenTutorial = true;
                 }
 
-                let measure = outlineText.measureText(ctx, 14, "white", TUTORIAL_STRINGS[i], 0, startY, 4, "left");
+                let measure = outlineText.measureText(ctx, 14, "white", cnItem(TUTORIAL_STRINGS[i]), 0, startY, 4, "left");
                 let wrap = Math.ceil(measure / canvas.width);
-                if (wrap > 1) outlineText.drawWrapText(ctx, 14, "white", TUTORIAL_STRINGS[i], 0, startY, 4, "left", canvas.width, 16);
-                else outlineText.drawText(ctx, 14, "white", TUTORIAL_STRINGS[i], 0, startY, 4, "left");
+                if (wrap > 1) outlineText.drawWrapText(ctx, 14, "white", cnItem(TUTORIAL_STRINGS[i]), 0, startY, 4, "left", canvas.width, 16);
+                else outlineText.drawText(ctx, 14, "white", cnItem(TUTORIAL_STRINGS[i]), 0, startY, 4, "left");
                 startY += incY * (wrap + 2.5);
             }
             i++;
