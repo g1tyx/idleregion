@@ -283,7 +283,7 @@ var cnItems = {
     "Regional happiness bonus increased by 100%": "区域幸福加成提升100%",
     "Renaissance Fair": "文艺复兴博览会",
     "Return": "返回",
-    "Rock Clicker": "摇滚唱首歌",
+    "Rock Clicker": "石头点击者",
     "Sharper Axes": "更锋利的斧头",
     "Sharper Spears": "更锋利的矛",
     "Shore": "海岸",
