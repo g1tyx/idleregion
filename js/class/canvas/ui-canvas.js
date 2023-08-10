@@ -1602,7 +1602,7 @@ class BuildingTooltip{
         outlineText.drawText(ctx, 14, "white", `基础生产: $${baseYield}`, 0, posY, 2, "left"); posY += incY;
         outlineText.drawText(ctx, 14, "white", `放置: `+ cnItem(`${placeStyle}`) +` 地块`, 0, posY, 2, "left"); posY += incY;
         if (populationBonus > 0) { outlineText.drawText(ctx, 14, "white", `容纳 ${populationBonusString} 人`, 0, posY, 2, "left"); posY += incY; }
-        if (boostBonus > 0) { outlineText.drawText(ctx, 14, "white", `提升生产 ${(boostBonus)}% 按比率`, 0, posY, 2, "left"); posY += incY; }
+        if (boostBonus > 0) { outlineText.drawText(ctx, 14, "white", `提升生产率 ${(boostBonus)}%`, 0, posY, 2, "left"); posY += incY; }
         if (this.building.requires_path) { outlineText.drawText(ctx, 14, "white", `需要道路连接`, 0, posY, 2, "left"); posY += incY; }
 
         if (earningSec > 0 || totalTowers > 0 || population > 0) {
