@@ -429,7 +429,7 @@ var cnItems = {
     "Must be placed on shores or water": "必须放置在海岸或水上",
     "Placed a Scenery Tile": "放置了风景瓷砖",
     "The Road Less Traveled": "少有人走的路",
-    "": "",
+    "Citizens take to the ocean as new Fishing Hut built": "随着新钓鱼小屋的建成，市民们开始走向大海",
     "": "",
     "": "",
     "": "",
