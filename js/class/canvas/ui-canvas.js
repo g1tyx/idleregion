@@ -1071,8 +1071,8 @@ class GameStatsPanel{
         let incY = 20;
 
         //#region Write stats
-        outlineText.drawText(ctx, 14, "white", `区域: ${this.player.name}`, 10, startY, 4, "left");                               startY += incY;
-        outlineText.drawText(ctx, 14, "white", `成立: ${dateStarted} (${timeAgo} ${timeAgoDenom} ago)`, 10, startY, 4, "left");  startY += incY;
+        outlineText.drawText(ctx, 14, "white", cnItem(`区域: ${this.player.name})`), 10, startY, 4, "left");                               startY += incY;
+        outlineText.drawText(ctx, 14, "white", `成立: ${dateStarted} (${timeAgo} ${timeAgoDenom} 前)`, 10, startY, 4, "left");  startY += incY;
         outlineText.drawText(ctx, 14, "white", `游戏时长: ${timePlayed} ${timePlayedDenom}`, 10, startY, 4, "left");                startY += incY;
         outlineText.drawText(ctx, 14, "white", `游戏中过去的天数: ${ingameTime}`, 10, startY, 4, "left");                         startY += incY * 2;
 
